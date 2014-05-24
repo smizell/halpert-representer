@@ -10,8 +10,16 @@
     "halpert",
     "hypermedia"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smizell/halpert-representer.git"
+  },
   "author": "Stephen Mizell",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smizell/halpert-representer/issues"
+  },
+  "homepage": "https://github.com/smizell/halpert-representer",
   "devDependencies": {
     "mocha": "~1.19.0",
     "gulp-mocha": "~0.4.1",
