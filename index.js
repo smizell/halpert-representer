@@ -3,7 +3,7 @@ var semantics = require('./lib/semantics'),
     actions = require('./lib/actions'),
     queries = require('./lib/queries'),
     fields = require('./lib/fields'),
-    representer = require('./representer')
+    representer = require('./lib/representer')
 
 module.exports = {
   semantics: semantics,
