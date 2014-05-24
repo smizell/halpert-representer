@@ -1,13 +1,12 @@
 {Collection, Item} = require('./base')
+{FieldCollection} = require('./fields')
 
 module.exports.QueryCollection = class QueryCollection extends Collection
-  # FieldCollection
-  queryParams = {}
+  queryParams: new FieldCollection
 
 module.exports.QueryItem = class QueryItem extends Item
 
 module.exports.TemplatedQueryCollection = class TemplatedQueryCollection extends QueryCollection
-  # FieldCollection
-  uriParams = {}
+  uriParams: new FieldCollection
 
 module.exports.TemplatedQueryItem = class TemplatedQueryItem extends Item

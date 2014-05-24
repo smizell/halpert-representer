@@ -1,10 +1,10 @@
 _ = require('lodash')
 
 module.exports.Collection = class Collection
-  @items = []
+  items: []
 
   constructor: (items) ->
-    @items = items
+    @items = items if items
 
   filterByRel: (rel) ->
     _.where(@items, { rels: [rel] })

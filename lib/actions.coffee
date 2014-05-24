@@ -1,13 +1,12 @@
 {Collection, Item} = require('./base')
+{FieldCollection} = require('./fields')
 
 module.exports.ActionCollection = class ActionCollection extends Collection
-  # FieldCollection
-  bodyParams = {}
+  bodyParams: new FieldCollection
 
 module.exports.ActionItem = class ActionItem extends Item
 
 module.exports.TemplatedActionCollection = class TemplatedActionCollection extends ActionCollection
-  # FieldCollection
-  uriParams = {}
+  uriParams: new FieldCollection
 
 module.exports.TemplatedActionItem = class TemplatedActionItem extends Item
