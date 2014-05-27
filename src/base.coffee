@@ -6,6 +6,9 @@ module.exports.Collection = class Collection
   constructor: (items) ->
     @items = items if items
 
+  all: ->
+    @items
+
   filterByRel: (rel) ->
     _.where(@items, { rels: [rel] })
 
@@ -14,5 +17,8 @@ module.exports.Collection = class Collection
 
   filterByClass: (className) ->
     _.where(@items, { classes: [className] })
+
+  filter: (conditions) ->
+    _.where(@items, conditions)
 
 module.exports.Item = class Item
