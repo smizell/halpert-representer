@@ -4,6 +4,7 @@ _ = require('lodash')
 {LinkCollection, TemplatedLinkCollection} = require('./links')
 {ActionCollection, TemplatedActionCollection} = require('./actions')
 {QueryCollection, TemplatedQueryCollection} = require('./queries')
+{PrefixCollection} = require('./prefixes')
 
 module.exports.PartialCollection = class PartialCollection extends Collection
 module.exports.IncludeCollection = class IncludeCollection extends Collection
@@ -11,6 +12,7 @@ module.exports.IncludeCollection = class IncludeCollection extends Collection
 module.exports.Representer = class Representer
 
   constructor: (formats, data, formatName) ->
+    @prefixes = new PrefixCollection
     @semantics = new SemanticCollection
     @properties = {}
     @links =  new LinkCollection
