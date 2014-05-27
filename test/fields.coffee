@@ -1,4 +1,4 @@
-{FieldCollection} = require('../lib/fields')
+{FieldCollection} = require('../src/fields')
 chai = require('chai')
 expect = chai.expect
 

@@ -1,4 +1,4 @@
-{Representer} = require('../lib/representer')
+{Representer} = require('../src/representer')
 chai = require('chai')
 expect = chai.expect
 
@@ -6,8 +6,8 @@ expect = chai.expect
 # A simple function that returns an object will work
 # for this test.
 
-formats = 
-  'test': 
+formats =
+  'test':
     formatName: 'test'
     builder: (rep) -> { converted: true }
 

@@ -1,4 +1,4 @@
-{SemanticCollection} = require('../lib/semantics')
+{SemanticCollection} = require('../src/semantics')
 chai = require('chai')
 expect = chai.expect
 

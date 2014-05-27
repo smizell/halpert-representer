@@ -2,35 +2,50 @@ require('coffee-script/register');
 
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
-    mocha = require('gulp-mocha');
+    mocha = require('gulp-mocha'),
+    coffee = require('gulp-coffee'),
+    gutil = require('gulp-util'),
+    coffeelint = require('gulp-coffeelint');
 
-gulp.task('mocha', function() {
+var mochaOpts = {
+  ui: "bdd",
+  reporter: "list",
+  compilers: "coffee:coffee-script"
+}
 
-  var mocha_opts = {};
-
-  try {
-    var opts = fs.readFileSync('test/mocha.opts', 'utf8')
-      .trim()
-      .split(/\s+/);
-
-    opts.forEach(function(val, indx, arry) {
-      if (/^-.+?/.test(val)) {
-        val = val.replace(/^-+(.+?)/, "$1");
-        mocha_opts[val] = arry[indx + 1];
-      }
-    });
-
-  } catch (err) {
-    // ignore
-  }
-
-  return watch({ glob: 'test/**/*.coffee', read:false }, function(files) {
-    files
-      .pipe(mocha(mocha_opts))
-      .on('error', function(err) {
-        if (!/tests? failed/.test(err.stack)) {
-          console.log(err.stack);
-        }
-      });
-  });
+gulp.task('buildLint', function() {
+  return gulp
+    .src(['./src/**/*.coffee', './test/**/*.coffee'])
+    .pipe(coffeelint())
+    .pipe(coffeelint.reporter('fail'))
+    .on('error', function(err) {
+      console.log(err.stack);
+    })
 });
+
+gulp.task('lint', function() {
+  return gulp
+    .src(['./src/**/*.coffee', './test/**/*.coffee'])
+    .pipe(coffeelint())
+    .pipe(coffeelint.reporter())
+});
+
+gulp.task('test', function() {
+  return gulp
+    .src('./test/**/*.coffee')
+    .pipe(mocha(mochaOpts))
+});
+
+gulp.task('coffee', ['buildLint', 'test'], function() {
+  return gulp
+    .src('./src/**/*.coffee')
+    .pipe(coffee({bare: true}))
+    .pipe(gulp.dest('./lib/'))
+});
+
+gulp.task('watch', function() {
+  gulp.watch(['./src/**/*.coffee', './test/**/*.coffee'], ['lint', 'test']);
+});
+
+gulp.task('build', ['buildLint', 'test', 'coffee'])
+gulp.task('default', ['lint', 'test', 'watch']);

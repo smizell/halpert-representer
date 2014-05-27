@@ -6,7 +6,9 @@ module.exports.QueryCollection = class QueryCollection extends Collection
 
 module.exports.QueryItem = class QueryItem extends Item
 
-module.exports.TemplatedQueryCollection = class TemplatedQueryCollection extends QueryCollection
+class TemplatedQueryCollection extends QueryCollection
   uriParams: new FieldCollection
+
+module.exports.TemplatedQueryCollection = TemplatedQueryCollection
 
 module.exports.TemplatedQueryItem = class TemplatedQueryItem extends Item

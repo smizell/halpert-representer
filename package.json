@@ -1,6 +1,6 @@
 {
   "name": "halpert-representer",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Halpert definitions",
   "main": "index.js",
   "scripts": {
@@ -25,7 +25,11 @@
     "gulp-mocha": "~0.4.1",
     "chai": "~1.9.1",
     "gulp": "~3.6.2",
-    "gulp-watch": "~0.6.5"
+    "gulp-watch": "~0.6.5",
+    "gulp-coffee": "~1.4.3",
+    "gulp-util": "~2.2.14",
+    "coffee-script": "~1.7.1",
+    "gulp-coffeelint": "~0.3.3"
   },
   "dependencies": {
     "lodash": "~2.4.1",

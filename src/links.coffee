@@ -4,7 +4,9 @@
 module.exports.LinkCollection = class LinkCollection extends Collection
 module.exports.LinkItem = class LinkItem extends Item
 
-module.exports.TemplatedLinkCollection = class TemplatedLinkCollection extends Collection
+class TemplatedLinkCollection extends Collection
   uriParams: new FieldCollection
+
+module.exports.TemplatedLinkCollection = TemplatedLinkCollection
 
 module.exports.TemplatedLinkItem = class TemplatedLinkItem extends Item

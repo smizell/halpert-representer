@@ -1,8 +1,8 @@
-{Collection} = require('../lib/base')
+{Collection} = require('../src/base')
 chai = require('chai')
 expect = chai.expect
 
-# This doesn't have to be 
+# This doesn't have to be
 
 items = [
   { rels: [ "item", "order" ], id: "order-1" }

@@ -6,7 +6,9 @@ module.exports.ActionCollection = class ActionCollection extends Collection
 
 module.exports.ActionItem = class ActionItem extends Item
 
-module.exports.TemplatedActionCollection = class TemplatedActionCollection extends ActionCollection
+class TemplatedActionCollection extends ActionCollection
   uriParams: new FieldCollection
+
+module.exports.TemplatedActionCollection = TemplatedActionCollection
 
 module.exports.TemplatedActionItem = class TemplatedActionItem extends Item
